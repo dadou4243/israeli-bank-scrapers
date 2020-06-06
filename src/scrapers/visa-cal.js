@@ -97,13 +97,13 @@ function convertCurrency(currency) {
 }
 
 function getInstallmentsInfo(txn) {
-  if (!txn.CurrentPayment || txn.CurrentPayment === '0') {
+  if (!txn.InstallmentNumber || txn.TotalNumberOfInstallments === '0') {
     return null;
   }
 
   return {
-    number: parseInt(txn.CurrentPayment, 10),
-    total: parseInt(txn.TotalPayments, 10),
+    number: parseInt(txn.InstallmentNumber, 10),
+    total: parseInt(txn.TotalNumberOfInstallments, 10),
   };
 }
 
